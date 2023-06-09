@@ -6,24 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32">
+  <title>Frontend Mentor | Advice generator app</title>
   <!--GOOGLE FONTS-->
   <link rel=" preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
   <!-- STYLE SHEET -->
   <link rel="stylesheet" href="style.css">
-  <title>Frontend Mentor | Advice generator app</title>
-
+  <script defer src="app.js"></script>
 </head>
 
 <body class="font-man">
-  <main class="h-screen bg-shadow flex items-center justify-center flex-col">
+  <main class="flex flex-col items-center justify-center h-screen bg-shadow">
     <section
-      class="w-[92%] max-w-[500px] h-auto bg-bgPrimary rounded-xl flex flex-col items-center gap-[1.5rem] pt-[2.5rem] px-6 md:px-[2rem] mt-auto drop-shadow-2xl">
-      <h1 class="text-xs text-neonGreen tracking-[4px]">ADVICE # <span id="advice-num">117</span></h1>
+      class="w-[92%] max-w-[480px] h-auto bg-bgPrimary rounded-xl flex flex-col items-center gap-[1.6rem] pt-[2.5rem] px-6 md:px-[2rem] mt-auto drop-shadow-2xl">
+      <h1 class="text-xs text-neonGreen tracking-[4px]">ADVICE <span id="quote-num"></span></h1>
       <!-- Advice -->
-      <p class="text-[27px] text-center text-cyanLight">"Lorem ipsum dolor sit amet consectetur,
-        obcaecati!"</p>
+      <p class="text-[27px] text-center text-cyanLight" id="quotes"></p>
 
       <!-- Divider -->
       <picture class="">
@@ -43,9 +42,9 @@
 
     <div class="text-[10px] text-cyanLight mt-auto mb-6">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge"
-        class="text-blue-600 hover:text-blue-500 transition duration-300" target="_blank">Frontend
+        class="text-blue-600 transition duration-300 hover:text-blue-500" target="_blank">Frontend
         Mentor</a>.
-      Coded by <a href="#" class="text-blue-600 hover:text-blue-500 transition duration-300">Victor Umeokoli</a>.
+      Coded by <a href="#" class="text-blue-600 transition duration-300 hover:text-blue-500">Victor Umeokoli</a>.
     </div>
   </main>
 
