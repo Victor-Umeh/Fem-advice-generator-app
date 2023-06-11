@@ -13,24 +13,40 @@ function displayData(data) {
   quoteEl.textContent = `"${advice}"`;
   quoteNum.textContent = `#${id}`;
 }
-function getAdvice() {
-  fetch("https://api.adviceslip.com/advice", {
-    cache: "no-cache",
-  })
-    .then((res) => {
-      if (!res.ok) throw new Error(`${res.status} Advice Not Found`);
-      return res.json();
-    })
-    .then((data) => {
-      //Store data in locale storage
-      const str = localStorage.setItem("data", JSON.stringify(data));
-      displayData(data);
-    })
-    .catch((err) => {
-      quoteEl.textContent = err.message;
-    });
-}
+// function getAdvice() {
+//   //--------- MAKING API CALLS USING THE THEN() ----------------
+//   // fetch("https://api.adviceslip.com/advice", {
+//   //   cache: "no-cache",
+//   // })
+//   //   .then((res) => {
+//   //     if (!res.ok) throw new Error(`${res.status} Advice Not Found`);
+//   //     return res.json();
+//   //   })
+//   //   .then((data) => {
+//   //     //Store data in locale storage
+//   //     const str = localStorage.setItem("data", JSON.stringify(data));
+//   //     displayData(data);
+//   //   })
+//   //   .catch((err) => {
+//   //     quoteEl.textContent = err;
+//   //     console.error(err.message);
+//   //   });
 
+// }
+
+//   //--------- MAKING API CALLS USING THE ASYNC and AWAIT method ----------------
+
+async function getAdvice() {
+  const adviceData = await fetch("https://api.adviceslip.com/advice", {
+    cache: "no-cache",
+  });
+  if (!adviceData.ok) throw new Error("Error poor network connection");
+
+  const res = await adviceData.json();
+  //Save current advice
+  localStorage.setItem("data", JSON.stringify(res));
+  displayData(res);
+}
 //Get data on button click
 btnEl.addEventListener("click", getAdvice);
 
